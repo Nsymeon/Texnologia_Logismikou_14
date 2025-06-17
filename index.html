@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heart Risk Predictor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Heart Disease Risk Prediction</h1>
+  <form id="risk-form">
+    <label for="user_name">Name:</label>
+    <input type="text" id="user_name" name="user_name" required><br>
+
+    <label for="user_email">Email:</label>
+    <input type="email" id="user_email" name="user_email" required><br>
+
+    <input type="submit" value="Get Risk and Email Result">
+  </form>
+
+  <div id="result"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
