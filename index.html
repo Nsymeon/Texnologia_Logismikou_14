@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  
+  <!-- Header Section with Image and Intro Paragraph -->
+  <img src="heart-health.jpg" alt="Heart Health" style="width:200px; display:block; margin:auto;">
   <h1>Heart Disease Risk Prediction</h1>
+  <p style="text-align:center; max-width:600px; margin:auto;">
+    Welcome to the Heart Disease Risk Predictor. Fill in the following medical information to assess your risk 
+    of heart disease. You can view your prediction directly and optionally email the result to yourself.
+  </p>
+
+  <!-- Form Section -->
   <form id="predict-form">
     <input type="text" id="user_name" placeholder="Your Name" required />
     <input type="email" id="user_email" placeholder="Your Email" required />
@@ -27,11 +35,14 @@
     <input type="number" id="ca" placeholder="Number of Major Vessels (0–3)" required />
     <input type="number" id="thal" placeholder="Thal (1–3)" required />
 
-    <input type="submit" value="Predict and Email Me" />
+    <!-- Buttons are now separated -->
+    <button type="button" id="predict-btn">Predict</button>
+    <button type="button" id="email-btn">Email Me</button>
   </form>
 
-  <div id="result"></div>
+  <div id="result" style="margin-top:20px; font-weight:bold;"></div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="script.js"></script>
