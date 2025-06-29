@@ -7,13 +7,18 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  
-  <!-- Header Section with Image and Intro Paragraph -->
-  <img src="heart-health.jpg" alt="Heart Health" style="width:200px; display:block; margin:auto;">
+
+  <!-- Header Image -->
+  <img src="heart-health.jpg" alt="Heart Health Image">
+
+  <!-- Title -->
   <h1>Heart Disease Risk Prediction</h1>
-  <p style="text-align:center; max-width:600px; margin:auto;">
-    Welcome to the Heart Disease Risk Predictor. Fill in the following medical information to assess your risk 
-    of heart disease. You can view your prediction directly and optionally email the result to yourself.
+
+  <!-- Introductory Paragraph -->
+  <p>
+    Welcome to the Heart Disease Risk Predictor. Please enter your personal and medical information below.
+    This tool will help predict your potential risk of heart disease based on key health indicators. 
+    You can view the prediction on this page and optionally email the result to yourself.
   </p>
 
   <!-- Form Section -->
@@ -24,27 +29,31 @@
     <input type="number" id="age" placeholder="Age" required />
     <input type="number" id="sex" placeholder="Sex (0 = female, 1 = male)" required />
     <input type="number" id="cp" placeholder="Chest Pain Type (0–3)" required />
-    <input type="number" id="trestbps" placeholder="Resting BP" required />
+    <input type="number" id="trestbps" placeholder="Resting Blood Pressure" required />
     <input type="number" id="chol" placeholder="Cholesterol" required />
-    <input type="number" id="fbs" placeholder="Fasting Blood Sugar (0/1)" required />
-    <input type="number" id="restecg" placeholder="Rest ECG (0–2)" required />
-    <input type="number" id="thalach" placeholder="Max Heart Rate" required />
+    <input type="number" id="fbs" placeholder="Fasting Blood Sugar (0 = False, 1 = True)" required />
+    <input type="number" id="restecg" placeholder="Resting ECG (0–2)" required />
+    <input type="number" id="thalach" placeholder="Max Heart Rate Achieved" required />
     <input type="number" id="exang" placeholder="Exercise Induced Angina (0/1)" required />
     <input type="number" id="oldpeak" placeholder="ST Depression" step="0.1" required />
-    <input type="number" id="slope" placeholder="Slope (0–2)" required />
+    <input type="number" id="slope" placeholder="Slope of ST (0–2)" required />
     <input type="number" id="ca" placeholder="Number of Major Vessels (0–3)" required />
-    <input type="number" id="thal" placeholder="Thal (1–3)" required />
+    <input type="number" id="thal" placeholder="Thalassemia (1–3)" required />
 
-    <!-- Buttons are now separated -->
-    <button type="button" id="predict-btn">Predict</button>
-    <button type="button" id="email-btn">Email Me</button>
+    <!-- Button Group -->
+    <div class="button-group">
+      <button type="button" id="predict-btn">Predict</button>
+      <button type="button" id="email-btn">Email Me</button>
+    </div>
   </form>
 
-  <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  <!-- Result Display -->
+  <div id="result"></div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
