@@ -45,6 +45,19 @@ document.getElementById("predict-btn").addEventListener("click", async function 
   }
 });
 
+document.getElementById("pdf-btn").addEventListener("click", function () {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  const text = document.getElementById("result").innerText || "No result to save.";
+
+  // Προσθήκη κειμένου (ξεκινά από αριστερά πάνω)
+  doc.text(text, 10, 10);
+
+  // Κατεβάζει το PDF με όνομα report.pdf
+  doc.save("heart-risk-report.pdf");
+});
+
 // Χειρισμός Email Button
 document.getElementById("email-btn").addEventListener("click", function () {
   if (!currentRisk) {
