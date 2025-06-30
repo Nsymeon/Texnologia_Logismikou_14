@@ -10,7 +10,7 @@ let currentEmail = "";
 document.getElementById("predict-btn").addEventListener("click", async function () {
   const inputIds = ["age", "sex", "cp", "trestbps", "chol", "fbs", "restecg",
     "thalach", "exang", "oldpeak", "slope", "ca", "thal"];
-  
+
   const inputs = inputIds.map(id => {
     const value = parseFloat(document.getElementById(id).value);
     if (isNaN(value)) {
@@ -31,7 +31,6 @@ document.getElementById("predict-btn").addEventListener("click", async function 
   try {
     const model = await tf.loadLayersModel('https://nsymeon.github.io/Texnologia_Logismikou_14/model/model.json');
 
-
     const inputTensor = tf.tensor2d([inputs]);
     const prediction = await model.predict(inputTensor).data();
     currentRisk = (prediction[0] * 100).toFixed(2);
@@ -48,7 +47,7 @@ document.getElementById("predict-btn").addEventListener("click", async function 
 document.getElementById("pdf-btn").addEventListener("click", function () {
   if (!currentRisk) {
     alert("Please run the prediction first.");
-  return;
+    return;
   }
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
@@ -60,7 +59,7 @@ document.getElementById("pdf-btn").addEventListener("click", function () {
 
   // Κατεβάζει το PDF με όνομα report.pdf
   doc.save("heart-risk-report.pdf");
-};
+});
 
 // Χειρισμός Email Button
 document.getElementById("email-btn").addEventListener("click", function () {
