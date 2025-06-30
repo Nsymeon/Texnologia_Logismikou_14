@@ -10,10 +10,18 @@ let currentEmail = "";
 document.getElementById("predict-btn").addEventListener("click", async function () {
   const inputIds = ["age", "sex", "cp", "trestbps", "chol", "fbs", "restecg",
     "thalach", "exang", "oldpeak", "slope", "ca", "thal"];
-  const inputs = inputIds.map(id => parseFloat(document.getElementById(id).value));
+  
+  const inputs = inputIds.map(id => {
+    const value = parseFloat(document.getElementById(id).value);
+    if (isNaN(value)) {
+      alert(`Please enter a valid number for ${id}.`);
+      throw new Error(`Invalid input for ${id}`);
+    }
+    return value;
+  });
 
-  currentName = document.getElementById("user_name").value;
-  currentEmail = document.getElementById("user_email").value;
+  currentName = document.getElementById("user_name").value.trim();
+  currentEmail = document.getElementById("user_email").value.trim();
 
   if (!currentName || !currentEmail) {
     alert("Please enter your name and email.");
@@ -21,9 +29,7 @@ document.getElementById("predict-btn").addEventListener("click", async function 
   }
 
   try {
-    const model = await tf.loadLayersModel('model/model.json');
-
-
+    const model = await tf.loadLayersModel('./model/model.json');
 
     const inputTensor = tf.tensor2d([inputs]);
     const prediction = await model.predict(inputTensor).data();
@@ -33,7 +39,7 @@ document.getElementById("predict-btn").addEventListener("click", async function 
     document.getElementById("result").innerText = resultMsg;
 
   } catch (error) {
-    alert("Error loading the model or making a prediction.");
+    alert("❌ Error loading the model or making a prediction. Check if 'model.json' and '.bin' are correctly hosted.");
     console.error(error);
   }
 });
@@ -50,8 +56,9 @@ document.getElementById("email-btn").addEventListener("click", function () {
     user_email: currentEmail,
     risk: currentRisk
   }).then(() => {
-    alert("Email sent successfully!");
+    alert("✅ Email sent successfully!");
   }, (err) => {
-    alert("Failed to send email: " + JSON.stringify(err));
+    alert("❌ Failed to send email: " + JSON.stringify(err));
+    console.error(err);
   });
 });
