@@ -40,7 +40,7 @@ document.getElementById("predict-btn").addEventListener("click", async function 
     document.getElementById("result").innerText = resultMsg;
 
   } catch (error) {
-    alert("❌ Error loading the model or making a prediction. Check if 'model.json' and '.bin' are correctly hosted.");
+    alert("Error loading the model or making a prediction.");
     console.error(error);
   }
 });
