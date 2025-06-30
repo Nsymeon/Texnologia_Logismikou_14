@@ -8,13 +8,6 @@ body {
   padding: 40px;
 }
 
-/* Header */
-h1 {
-  color: #00796b;
-  font-size: 2.5em; /* Μεγαλύτερο μέγεθος */
-  margin-bottom: 20px;
-}
-
 /* Εισαγωγική παράγραφος */
 p {
   text-align: center;
@@ -22,6 +15,13 @@ p {
   margin-bottom: 30px;
   color: #333;
   line-height: 1.5;
+}
+
+/* Header */
+h1 {
+  color: #00796b;
+  font-size: 2.5em; /* Μεγαλύτερο μέγεθος */
+  margin-bottom: 20px;
 }
 
 /* Εικόνα */
