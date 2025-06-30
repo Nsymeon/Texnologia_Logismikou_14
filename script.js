@@ -29,7 +29,7 @@ document.getElementById("predict-btn").addEventListener("click", async function 
   }
 
   try {
-    const model = await tf.loadLayersModel('https://nsymeon.github.io/Texnologia_Logismikou_14//heart-risk-analyzer/model/model.json');
+    const model = await tf.loadLayersModel('https://nsymeon.github.io/Texnologia_Logismikou_14/model/model.json');
 
 
     const inputTensor = tf.tensor2d([inputs]);
