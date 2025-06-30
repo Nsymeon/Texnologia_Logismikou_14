@@ -60,7 +60,7 @@ document.getElementById("pdf-btn").addEventListener("click", function () {
 
   // Κατεβάζει το PDF με όνομα report.pdf
   doc.save("heart-risk-report.pdf");
-});
+};
 
 // Χειρισμός Email Button
 document.getElementById("email-btn").addEventListener("click", function () {
