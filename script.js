@@ -46,6 +46,10 @@ document.getElementById("predict-btn").addEventListener("click", async function 
 });
 
 document.getElementById("pdf-btn").addEventListener("click", function () {
+  if (!currentRisk) {
+  alert("Please run the prediction first.");
+  return;
+      
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
