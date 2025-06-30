@@ -21,7 +21,7 @@ document.getElementById("predict-btn").addEventListener("click", async function 
   }
 
   try {
-    const model = await tf.loadLayersModel('./model/model.json');
+    const model = await tf.loadLayersModel('model/model.json');
 
 
 
